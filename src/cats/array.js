@@ -23,7 +23,7 @@ export const mapUnit = function(c) {
 };
 
 // flatten
-export const flatMap = function(c) {
+export const flatten = function(c) {
   if (c === undefined) {
     c = Base.identity;
   }
@@ -33,6 +33,6 @@ export const flatMap = function(c) {
 };
 
 // eslint-disable-next-line no-extend-native
-Array.prototype.flatMap = function(c) {
-  return flatMap(c)(this);
+Array.prototype.flatten = function(c) {
+  return flatten(c)(this);
 };

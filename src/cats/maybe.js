@@ -33,6 +33,10 @@ export const maybeMap = c => m => {
   }
 };
 
+Maybe.prototype.map = function(c) {
+  return maybeMap(c)(this);
+};
+
 // unit
 export const maybeUnit = function(c) {
   return function(x) {
@@ -41,7 +45,7 @@ export const maybeUnit = function(c) {
 };
 
 // flatten
-export const maybeFlatMap = function(c) {
+export const maybeFlatten = function(c) {
   if (c === undefined) {
     c = Base.identity;
   }
@@ -51,6 +55,6 @@ export const maybeFlatMap = function(c) {
   };
 };
 
-Maybe.prototype.flatMap = function(c) {
-  return maybeFlatMap(c)(this);
+Maybe.prototype.flatten = function(c) {
+  return maybeFlatten(c)(this);
 };
